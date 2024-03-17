@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Конвертер валют</h1>
+    <button onclick="currency.assign()">Введіть вашу суму</button>
+    <button onclick="currency.calcGrnToDollar()">
+      Перевести гривні в доллари
+    </button>
+    <button onclick="currency.calcDollarToGrn()">
+      Перевести доллари в гривні
+    </button>
+    <script>
+      let currency = {
+        coef: 38.81,
+        money: 10,
+        sum: 0,
+        assign: function () {
+          this.money = +prompt("Input money:");
+        },
+        calcGrnToDollar: function (money, coef) {
+          this.sum = this.money / this.coef;
+          alert(`${this.money}₴ = $${this.sum.toFixed(2)}`);
+        },
+        calcDollarToGrn: function (money, coef) {
+          this.sum = this.money * this.coef;
+          alert(`$${this.money} = ${this.sum.toFixed(2)}₴`);
+        },
+      };
+    </script>
+  </body>
+</html>
